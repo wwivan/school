@@ -1,0 +1,15 @@
+<!-- <view>
+ {{user.nickName && user.nickName|| 'My'}}
+</view> -->
+<view>
+  学生
+  <button size="default" type="primary" onTap="stuChoose">为本人开通</button>
+</view>
+<view>
+  家长
+  <button size="default" type="primary" onTap="parChoose">为孩子开通</button>
+</view>
+<view>
+  教职工
+  <button size="default" type="primary" onTap="teacChoose">为本人开通</button>
+</view>

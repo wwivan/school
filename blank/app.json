@@ -1,0 +1,17 @@
+{
+  "extEnable": true,
+  "pages": [
+    "pages/login/login",
+    "pages/main/main",
+    "pages/userInfo/userInfo",
+   "pages/school/school"
+  ],
+  "window": {
+    "defaultTitle": "校园通行一脸通"
+  },
+  "extPages": {
+    "​pages/userInfo/userInfo":{
+        "defaultTitle": "功能演示页面"
+    }
+  }
+}

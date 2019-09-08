@@ -1,0 +1,10 @@
+<!-- <input placeholder="此处只有在点击下方按钮时才聚焦" focus="{{focus}}" />
+<input maxlength="10" placeholder="最大输入长度10" />
+<input onInput="telInput" placeholder="输入同步到view中"/>
+<input onInput="IdInput" placeholder="输入同步到view中"/>
+<input type="number" placeholder="这是一个数字输入框" />
+<input password type="text" placeholder="这是一个密码输入框" />
+<input type="digit" placeholder="带小数点的数字键盘"/>
+<input type="idcard" placeholder="身份证输入键盘" /> -->
+<!-- <view onTap="login">登录</view> -->
+<button size="default" type="primary" onTap="login">登录</button>

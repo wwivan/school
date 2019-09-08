@@ -1,0 +1,8 @@
+<input placeholder="输入学校名查询" />
+<view>
+  <view>已选城市</view>
+  <view>{{city}}</view>
+  <view a:for="{{schoolList.data}}">
+    <view onTap="tddoChoose" data-value="{{item}}">{{item.campusName}}</view>
+  </view>
+</view>
