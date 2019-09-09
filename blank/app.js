@@ -98,13 +98,15 @@ App({
   //人脸采集
   getFace() {
     return new Promise((resolve, reject) => {
+      const bizId = (new Date().getTime()).toString();
       my.ap.faceVerify({
-        retCodeSub:'344344',
-        zimId:'eeea',
-        faceRetCode:'eeeeeawwe',
-        bizId: '545689782223337654767653', // 业务流水号，商户自行生成，需要保证唯一性，不超过64位
-        bizType: '1', // 业务场景参数，1 代表人脸采集  
-        useBackCamera: true, // 是否使用后置摄像头，true为使用后置摄像头；不设置时，默认使用前置摄像头
+        // retCodeSub:'344344',
+        // zimId:'eeea',
+        // faceRetCode:'eeeeeawwe',
+        
+        bizId, // 业务流水号，商户自行生成，需要保证唯一性，不超过64位
+        bizType: '2', // 业务场景参数，1 代表人脸采集  
+        // useBackCamera: true, // 是否使用后置摄像头，true为使用后置摄像头；不设置时，默认使用前置摄像头
         success: (res) => {
           my.alert({
             content: JSON.stringify(res),
@@ -119,7 +121,23 @@ App({
     })
   },
 
+  // getFace() {
+  //   alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", "app_id", "your private_key", "json", "GBK", "alipay_public_key", "RSA2");
+  //   request = new ZolozIdentificationUserWebQueryRequest();
+  //   request.setBizContent("{" +
+  //     "\"biz_id\":\"5456897876546767654\"," +
+  //     "\"zim_id\":\"731be7f204a962b0486a9b64ea3050ae\"," +
+  //     "\"extern_param\":\"{\\\"bizType\\\":\\\"1\\\"}\"" +
+  //     "}");
+  //   response = alipayClient.execute(request);
+  //   if (response.isSuccess()) {
+  //     System.out.println("调用成功");
+  //     console.info(response)
+  //   } else {
+  //     System.out.println("调用失败");
+  //   }
 
+  // },
   //学生合老师
   confirm(userType, schoolId, nickName, identityNo) {
     my.request({
