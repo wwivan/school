@@ -12,7 +12,7 @@ App({
 
   userInfo: null,
   value: null,
-  baseUrl: "http://49.235.80.78:8082/faceapi/api",
+  baseUrl: "https://mghl.muguahulian.com/faceapi/api",
   // 声明全局方法
   getUserInfo() {
     return new Promise((resolve, reject) => {
@@ -39,6 +39,7 @@ App({
       });
     });
   },
+
   //封裝getStorage方法
   getStore(key1) {
     return new Promise((resolve, reject) => {
@@ -96,17 +97,77 @@ App({
     })
   },
   //人脸采集
-  getFace() {
+  getFace(name) {
     return new Promise((resolve, reject) => {
+      const bizId = '1111155555';
       my.ap.faceVerify({
-        retCodeSub:'344344',
-        zimId:'eeea',
-        faceRetCode:'eeeeeawwe',
-        bizId: '545689782223337654767653', // 业务流水号，商户自行生成，需要保证唯一性，不超过64位
+        // retCodeSub:'344344',
+        // zimId:'eeea',
+        // faceRetCode:'eeeeeawwe',
+
+        bizId: bizId, // 业务流水号，商户自行生成，需要保证唯一性，不超过64位
         bizType: '1', // 业务场景参数，1 代表人脸采集  
-        useBackCamera: true, // 是否使用后置摄像头，true为使用后置摄像头；不设置时，默认使用前置摄像头
+        // useBackCamera: true, // 是否使用后置摄像头，true为使用后置摄像头；不设置时，默认使用前置摄像头
         success: (res) => {
+          if (res.faceRetCode == "1000") {
+            const zimId = res.zimId
+            console.info(bizId)
+            console.info(zimId)
+            my.request({
+              url: 'https://mghl.muguahulian.com/faceapi/api/face/faceVerify',
+              method: 'POST',
+              data: {
+                "resquestParam": {
+                  biz_id: bizId,
+                  zim_id: zimId,
+                  name: name+(new Date().getTime()).toString()
+                },
+                "sysParam": {
+                }
+              },
+              success: (res) => {
+                console.info(res.data.data.reqUrl)
+                my.setStorage({
+                  key: 'faceUrl',
+                  data: {
+                    faceUrl: res.data.data.reqUrl
+                  },
+                  success: function() {
+                    my.alert({ content: '录入成功' });
+                  }
+                });
+
+                // const base64 = res.data.data.base64
+                //  const len = res.data.data.len
+                // const token = res.data.data.token
+                // my.request({
+                //   url: `http://upload-z2.qiniup.com/putb64/-1`,
+                //   method: "POST",
+                //   headers: { 'Content-type': 'application/octet-stream', 'Authorization':"UpToken "+token },
+
+                //   data: {
+                //     pic: base64
+                //     // Authorization: token,
+                //   },
+                //   success: (res) => {
+                //     console.info(res)
+                //   },
+                //   fail: (res) => {
+                //     my.alert({
+                //       content: JSON.stringify(res),
+                //     });
+                //   }
+                // })
+
+
+
+              },
+            });
+          }
+
+          console.info(res)
           my.alert({
+
             content: JSON.stringify(res),
           });
         },
@@ -118,8 +179,27 @@ App({
       });
     })
   },
+//保存人脸识别照片
+saveFace(){
+  
+}
+  // getFace() {
+  //   alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", "app_id", "your private_key", "json", "GBK", "alipay_public_key", "RSA2");
+  //   request = new ZolozIdentificationUserWebQueryRequest();
+  //   request.setBizContent("{" +
+  //     "\"biz_id\":\"5456897876546767654\"," +
+  //     "\"zim_id\":\"731be7f204a962b0486a9b64ea3050ae\"," +
+  //     "\"extern_param\":\"{\\\"bizType\\\":\\\"1\\\"}\"" +
+  //     "}");
+  //   response = alipayClient.execute(request);
+  //   if (response.isSuccess()) {
+  //     System.out.println("调用成功");
+  //     console.info(response)
+  //   } else {
+  //     System.out.println("调用失败");
+  //   }
 
-
+  // },
   //学生合老师
   confirm(userType, schoolId, nickName, identityNo) {
     my.request({

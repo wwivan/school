@@ -1,45 +1,73 @@
 <view a:if="{{userType =='0'}}">
-  <view>学生信息</view>
-  <view>姓名</view>
-  <view>{{user.nickName?user.nickName:""}}</view>
-  <view>身份</view>
-  <view>{{userType=='0'?"学生":""}}</view>
-  <view>身份证号</view>
-  <input placeholder="Input" onInput="identityNo" />
+  <view class="title">学生信息</view>
+  <view class="row-content">
+    <view>姓名</view>
+    <view>{{user.nickName?user.nickName:""}}</view>
+  </view>
+  <view class="row-content">
+    <view>身份</view>
+    <view>{{userType=='0'?"学生":""}}</view>
+  </view>
+  <view class="row-content">
+    <view>身份证号</view>
+    <input placeholder="请输入身份证号" onInput="identityNo" />
+  </view>
   <!--<view>{{}}</view> -->
-  <view>学校</view>
-  <view onTap="chooseSchool">{{school==undefined?"请选择":school.campusName}}</view>
+  <view class="row-content">
+    <view>学校</view>
+    <view onTap="chooseSchool">{{school==undefined?"请选择":school.campusName}}</view>
+  </view>
 </view>
 <view a:if="{{userType =='1'}}">
-  <view>孩子信息</view>
-  <view>孩子姓名</view>
-  <input placeholder="Input" onInput="childName"/>
-  <view>孩子身份证号</view>
-  <input placeholder="Input" onInput="childId"/>
-  <view>学校</view>
-  <view onTap="chooseSchool">{{school==undefined?"请选择":school.campusName}}</view>
-  <view>我是孩子的</view>
-  <input placeholder="Input" onInput="relationship" />
+  <view class="title">孩子信息</view>
+  <view class="row-content">
+    <view>孩子姓名</view>
+    <input placeholder="请输入孩子真实姓名" onInput="childName"/>
+  </view>
+  <view class="row-content">
+    <view>孩子身份证号</view>
+    <input placeholder="请输入孩子身份证" onInput="childId"/>
+  </view>
+  <view class="row-content">
+    <view>学校</view>
+    <view onTap="chooseSchool">{{school==undefined?"请选择":school.campusName}}</view>
+  </view>
+  <view class="row-content">
+    <view>我是孩子的</view>
+    <input placeholder="请输入与孩子的关系（如：父亲）" onInput="relationship" />
+  </view>
   <!--<view>{{userType=='1'?"家长":""}}</view> -->
-  <view>姓名</view>
-  <view>{{user.nickName?user.nickName:""}}</view>
-  <view>手机号</view>
-  <input placeholder="Input" onInput="parTel"/>
+  <view class="row-content">
+    <view>姓名</view>
+    <view>{{user.nickName?user.nickName:""}}</view>
+  </view>
+  <view class="row-content">
+    <view>手机号</view>
+    <input placeholder="请输入您的手机号" onInput="parTel"/>
+  </view>
   <!--<view>{{}}</view> -->
 </view>
 <view a:if="{{userType =='2'}}">
-  <view>教职工信息</view>
-  <view>姓名</view>
-  <view>{{user.nickName?user.nickName:""}}</view>
-  <view>身份</view>
-  <view>{{userType=='2'?"教职工":""}}</view>
-  <view>身份证号</view>
-  <input placeholder="Input" onInput="identityNo" />
+  <view class="title">教职工信息</view>
+  <view class="row-content">
+    <view >姓名</view>
+    <view>{{user.nickName?user.nickName:""}}</view>
+  </view>
+  <view class="row-content">
+    <view>身份</view>
+    <view>{{userType=='2'?"教职工":""}}</view>
+  </view>
+  <view class="row-content">
+    <view>身份证号</view>
+    <input placeholder="请输入身份证号" onInput="identityNo" />
+  </view>
   <!--<view>{{}}</view> -->
-  <view>学校</view>
-  <view onTap="chooseSchool">{{school==undefined?"请选择":school.campusName}}</view>
+  <view class="row-content">
+    <view>学校</view>
+    <view onTap="chooseSchool">{{school==undefined?"请选择":school.campusName}}</view>
+  </view>
 </view>
-
-<button size="default" type="primary" onTap="getFace">人脸采集</button>
-<button size="default" type="primary" onTap="confirm">同意协议，下一步</button>
+<view onTap="getFace" class="face">+</view>
+<view style="width:100%;text-align:center;margin-top:20rpx;color:orange;">录入人脸</view>
+<button size="default" type="primary" onTap="confirm" class="btn">同意协议，下一步</button>
 <!--<view onTap="confirm">确认</view> -->

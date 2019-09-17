@@ -1,15 +1,24 @@
-<!-- <view>
- {{user.nickName && user.nickName|| 'My'}}
-</view> -->
+<!--<cover-image class="bg-image" src="../../assets/images/cover.jpg"/> -->
+<!--<swiper indicator-dots="{{true}}"><block a:for="{{['#4A90E2','#F5A623']}}"><swiper-item ><view style="background-color: {{item}};width:100%;height:300rpx"/></swiper-item></block></swiper> -->
+<view class="out-side">
+
 <view>
-  学生
-  <button size="default" type="primary" onTap="stuChoose">为本人开通</button>
-</view>
-<view>
-  家长
-  <button size="default" type="primary" onTap="parChoose">为孩子开通</button>
-</view>
-<view>
-  教职工
-  <button size="default" type="primary" onTap="teacChoose">为本人开通</button>
+
+<view class="wrapper">
+  
+  <view class="title">请选择你的身份</view>
+  <view class="content">
+    <view class="box">
+      <view class="user">学生</view>
+      <button size="default" type="primary" onTap="stuChoose" class="btn">为本人开通</button>
+    </view>
+    <view class="box">
+      <view class="user">家长</view>
+      <button size="default" type="primary" onTap="parChoose" class="btn">为孩子开通</button>
+    </view>
+    <view class="box">
+      <view class="user">教职工</view>
+      <button size="default" type="primary" onTap="teacChoose" class="btn">为本人开通</button>
+    </view>
+  </view>
 </view>

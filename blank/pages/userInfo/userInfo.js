@@ -81,9 +81,7 @@ Page({
     my.navigateTo({ url: '../school/school' });
   },
   getFace() {
-    app.getFace().then(
-      
-    )
+    app.getFace(this.data.user.nickName)
   },
   confirm() {
     if (this.data.userType != '1') {

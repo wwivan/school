@@ -1,0 +1,44 @@
+/* required by usingComponents */
+
+.search {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20rpx;
+}
+
+.searchInput {
+    font-size: 26rpx;
+}
+
+.main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.box-top {
+    height: 300rpx;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.city {
+    border-radius: 6rpx;
+    border: 1rpx solid orangered;
+    width: 90rpx;
+    height: 38rpx;
+    line-height: 38rpx;
+    text-align: center;
+    font-size: 26rpx;
+}
+
+.school-list {
+    margin-top: 30rpx;
+    width: 100%;
+}
+
+.school {
+    background: white;
+    width: 100%;
+}

@@ -1,8 +1,18 @@
-<input placeholder="输入学校名查询" />
-<view>
-  <view>已选城市</view>
-  <view>{{city}}</view>
-  <view a:for="{{schoolList.data}}">
-    <view onTap="tddoChoose" data-value="{{item}}">{{item.campusName}}</view>
-  </view>
+<view class="search">
+    <icon type="search" size="20"></icon>
+    <input placeholder="输入学校名查询" class="searchInput"/>
 </view>
+<view class="main">
+    <view onTap="onTopBtnTap">已选城市(点击可选其他城市)</view>
+    <view class="city">{{city}}</view>
+    <view a:for="{{schoolList.data}}" class="school-list">
+        <view onTap="todoChoose" data-value="{{item}}" class="school">{{item.campusName}}</view>
+    </view>
+</view>
+<popup show="{{showTop}}" position="top" onClose="onPopupClose">
+    <view class="box-top">
+        <view a:for="{{cityList}}">
+            <view onTap="chooseCity" data-value="{{item}}" class="city">{{item}}</view>
+        </view>
+    </view>
+</popup>

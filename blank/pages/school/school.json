@@ -1,5 +1,4 @@
 {
-  "window": {
-    "defaultTitle": "校园通行一脸通"
-  }
+  "window": { "defaultTitle": "校园通行一脸通" },
+  "usingComponents": { "popup": "mini-antui/es/popup/index" }
 }
