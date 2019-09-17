@@ -180,9 +180,6 @@ App({
     })
   },
 //保存人脸识别照片
-saveFace(){
-  
-}
   // getFace() {
   //   alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", "app_id", "your private_key", "json", "GBK", "alipay_public_key", "RSA2");
   //   request = new ZolozIdentificationUserWebQueryRequest();
